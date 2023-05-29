@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\View;
+
 class DashboardController
 {
-    public function index(): void
+    public function index(): View
     {
-        echo 'Say Hello to Dashboard';
+        return View::make('pages/dashboard');
     }
 }

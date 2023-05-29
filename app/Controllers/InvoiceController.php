@@ -2,10 +2,12 @@
 
 namespace App\Controllers;
 
+use App\View;
+
 class InvoiceController
 {
-    public function index(): void
+    public function index(): View
     {
-        echo 'Say Hello to Invoices';
+        return View::make('pages/invoices');
     }
 }
