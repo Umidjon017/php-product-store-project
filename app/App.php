@@ -28,7 +28,7 @@ class App
         } catch (RouteNotFoundException) {
             http_response_code(404);
 
-            echo View::make('pages/404');
+            echo View::make('404');
         }
     }
 }

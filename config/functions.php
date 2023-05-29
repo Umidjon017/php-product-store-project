@@ -21,3 +21,29 @@ if (! function_exists('ddr'))
 //        die();
     }
 }
+
+if (! function_exists("baseUri"))
+{
+    function baseUri(string $name): string {
+        return '/' . $name;
+    }
+}
+
+if (! function_exists('baseViewRequire'))
+{
+    function baseViewRequire(string $name): string
+    {
+        return VIEW_PATH . '/' . $name . '.php';
+    }
+}
+
+if (! function_exists("giveClass"))
+{
+    function giveClass(string $uri, string $class_name): string
+    {
+        if ($_SERVER['REQUEST_URI'] == $uri) {
+            return $class_name;
+        }
+        return true;
+    }
+}
