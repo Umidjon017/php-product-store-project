@@ -6,10 +6,10 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?= baseUri('admin'); ?>" class="nav-link">Home</a>
+            <a href="/admin" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?= baseUri('store'); ?>" class="nav-link">Store</a>
+            <a href="/store" class="nav-link">Store</a>
         </li>
     </ul>
 

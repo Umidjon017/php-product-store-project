@@ -41,7 +41,7 @@ if (! function_exists("giveClass"))
 {
     function giveClass(string $uri, string $class_name): string
     {
-        if ($_SERVER['REQUEST_URI'] == $uri) {
+        if ((new \App\Request())->getRoute() === $uri) {
             return $class_name;
         }
         return true;
