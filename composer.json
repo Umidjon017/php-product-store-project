@@ -1,0 +1,17 @@
+{
+    "name": "umidjon017/php-product-store-project",
+    "description": "PHP Product Store Project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Umidjon017"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
