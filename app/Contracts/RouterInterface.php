@@ -8,5 +8,7 @@ interface RouterInterface
 
     public function get(string $route, callable|array $action): void;
 
+    public function post(string $route, callable|array $action): void;
+
     public function dispatch(RequestInterface $request);
 }

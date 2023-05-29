@@ -20,6 +20,11 @@ class Router implements RouterInterface
         $this->register('get', $route, $action);
     }
 
+    public function post(string $route, callable|array $action): void
+    {
+        $this->register('post', $route, $action);
+    }
+
     public function dispatch(RequestInterface $request)
     {
         $route = $request->getRoute();

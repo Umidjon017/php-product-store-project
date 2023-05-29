@@ -11,6 +11,8 @@ $dotenv->load();
 
 const VIEW_PATH = __DIR__ . '/../resources';
 
+session_start();
+
 (new App(new Config($_ENV)))->run();
 
 

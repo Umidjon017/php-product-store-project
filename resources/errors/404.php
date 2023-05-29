@@ -61,16 +61,12 @@ require_once baseViewRequire('includes/header');
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        <?php
-            require_once baseViewRequire('includes/footer');
-            require_once baseViewRequire('includes/sidebar-control');
-        ?>
     </div>
     <!-- ./wrapper -->
     <?php
-        # You can add additional js dependencies here
+        require_once baseViewRequire('includes/footer');
         require_once baseViewRequire('includes/dependencies-js');
+        # You can add additional js dependencies here
     ?>
     </body>
 </html>

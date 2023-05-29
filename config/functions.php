@@ -22,10 +22,12 @@ if (! function_exists('ddr'))
     }
 }
 
-if (! function_exists("baseUri"))
+if (! function_exists("redirect"))
 {
-    function baseUri(string $name): string {
-        return '/' . $name;
+    function redirect($link): void
+    {
+        header("Location: ". "/" . $link);
+        exit();
     }
 }
 

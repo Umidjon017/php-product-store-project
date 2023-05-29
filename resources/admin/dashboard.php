@@ -1,13 +1,21 @@
 <?php
+$user = (new \App\Tools\Session())->get('user_id');
+if (! isset($user)):
+?>
+
+<h1>You have to <a href="/sign-up">register</a> or <a href="/sign-in">login</a> for entering to the admin panel</h1>
+
+    <?php
+else:
     require_once baseViewRequire('includes/header');
     # You can add additional css dependencies here
-?>
+    ?>
     </head>
     <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <?php
-            require_once baseViewRequire('includes/navbar');
-            require_once baseViewRequire('includes/sidebar');
+        require_once baseViewRequire('includes/navbar');
+        require_once baseViewRequire('includes/sidebar');
         ?>
 
         <!-- Content Wrapper. Contains page content -->
@@ -38,12 +46,6 @@
                         <div class="col-lg-3 col-6">
                             <!-- small box -->
                             <div class="small-box bg-info">
-                                <?php if (! empty($user)): ?>
-                                    User ID: <?= $user['id']; ?> <br>
-                                    User Name: <?= $user['name']; ?> <br>
-                                    <!--User Email: --><?//= $user['email']; ?><!-- <br>-->
-                                    <!--User Role: --><?//= $user['role_id']; ?><!-- <br>-->
-                                <?php endif; ?>
                                 <div class="inner">
                                     <h3>150</h3>
 
@@ -108,16 +110,14 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        <?php
-            require_once baseViewRequire('includes/footer');
-            require_once baseViewRequire('includes/sidebar-control');
-        ?>
     </div>
     <!-- ./wrapper -->
     <?php
-        # You can add additional js dependencies here
-        require_once baseViewRequire('includes/dependencies-js');
+    require_once baseViewRequire('includes/footer');
+    require_once baseViewRequire('includes/dependencies-js');
+    # You can add additional js dependencies here
     ?>
     </body>
-</html>
+    </html>
+
+<?php endif; ?>

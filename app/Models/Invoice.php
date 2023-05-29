@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace App\Entity;
+namespace App\Models;
 
 use App\Model;
 
-class InvoiceRepository extends Model
+class Invoice extends Model
 {
     public function getAll(): array
     {
