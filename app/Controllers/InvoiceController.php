@@ -2,12 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Entity\InvoiceRepository;
 use App\View;
 
 class InvoiceController
 {
     public function index(): View
     {
-        return View::make('pages/invoices');
+        $invoices = (new InvoiceRepository())->getAll();
+
+        return View::make('pages/invoices', [
+            'title' => 'Invoices Page',
+            'invoices' => $invoices
+        ]);
     }
 }

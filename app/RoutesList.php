@@ -5,6 +5,7 @@ namespace App;
 use App\Contracts\RouterInterface;
 use App\Controllers\DashboardController;
 use App\Controllers\InvoiceController;
+use App\Controllers\SettingController;
 
 class RoutesList
 {
@@ -12,5 +13,6 @@ class RoutesList
     {
         $router->get('/', [DashboardController::class, 'index']);
         $router->get('/invoices', [InvoiceController::class, 'index']);
+        $router->get('/settings', [SettingController::class, 'index']);
     }
 }

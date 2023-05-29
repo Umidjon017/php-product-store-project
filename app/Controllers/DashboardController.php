@@ -8,6 +8,11 @@ class DashboardController
 {
     public function index(): View
     {
-        return View::make('pages/dashboard');
+        $numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        return View::make('pages/dashboard', [
+            'dashboard' => 'Dashboard Page',
+            'numbers' => $numbers
+        ]);
     }
 }
