@@ -19,12 +19,14 @@
                         <p> Dashboard </p>
                     </a>
                 </li>
+                <!-- Users -->
                 <li class="nav-item">
                     <a href="/admin/users" class="nav-link <?= giveClass('/admin/users', 'active') ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p> Users </p>
                     </a>
                 </li>
+                <!-- Roles -->
                 <li class="nav-item <?= giveClass('/admin/roles', 'menu-open') ?>">
                     <a href="#" class="nav-link <?= giveClass('/admin/roles', 'active') ?>">
                         <i class="nav-icon fas fa-table"></i>
@@ -48,6 +50,14 @@
                         </li>
                     </ul>
                 </li>
+                <!-- Categories -->
+                <li class="nav-item">
+                    <a href="/admin/categories" class="nav-link <?= giveClass('/admin/categories', 'active') ?>">
+                        <i class="nav-icon fas fa-list-alt"></i>
+                        <p> Categories </p>
+                    </a>
+                </li>
+                <!-- Logout -->
                 <li class="nav-item btn-sm fixed-bottom">
                     <form action="/logout" method="post">
                         <button class="nav-link bg-gradient-dark btn-sm text-white-50">Logout</button>

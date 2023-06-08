@@ -1,30 +1,21 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 if (! function_exists('ddv'))
 {
-    function ddv(mixed $data): void
+    #[NoReturn] function dd(mixed $data): void
     {
         echo "<pre>";
         print_r($data);
         echo "</pre>";
-//        die();
-    }
-}
-
-if (! function_exists('ddr'))
-{
-    function ddr(mixed $data): void
-    {
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-//        die();
+        die();
     }
 }
 
 if (! function_exists("redirect"))
 {
-    function redirect($link): void
+    #[NoReturn] function redirect($link): void
     {
         header("Location: ". "/" . $link);
         exit();

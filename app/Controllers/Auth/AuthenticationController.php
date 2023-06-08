@@ -60,7 +60,6 @@ class AuthenticationController
             (new Session())->set('user_id', $user['id']);
 
             redirect('admin/users');
-            exit();
         } else {
             return null;
         }
@@ -72,7 +71,6 @@ class AuthenticationController
         (new Session())->remove('user_id');
 
         redirect('admin');
-        exit();
     }
 
     public function passwordHash($password): string

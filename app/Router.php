@@ -47,7 +47,7 @@ class Router implements RouterInterface
                 $class = new $class();
 
                 if (method_exists($class, $method)) {
-                    return call_user_func_array([$class, $method], []);
+                    return call_user_func_array([$class, $method], [$request]);
                 }
             }
         }

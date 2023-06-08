@@ -1,0 +1,83 @@
+use php_store_db;
+
+create table roles (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE permissions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  role_id INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_permission_role
+    FOREIGN KEY (role_id)
+    REFERENCES roles(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  role_id INT DEFAULT 0,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_user_role
+    FOREIGN KEY (role_id) 
+    REFERENCES roles(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE stores (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) UNIQUE NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  address TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE product_categories (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  price decimal(10,2) NOT NULL,
+  category_id INT NOT NULL,
+  store_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  CONSTRAINT fk_product_category
+	FOREIGN KEY (category_id)
+    REFERENCES product_categories(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT fk_product_store
+    FOREIGN KEY (store_id) 
+    REFERENCES stores(id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE INDEX idx_role_name ON roles (name);
+CREATE INDEX idx_permission_name ON permissions (name);
+CREATE INDEX idx_username ON users (username);
+CREATE INDEX idx_email ON users (email);
+CREATE INDEX idx_store_name ON stores (name);
+CREATE INDEX idx_store_city ON stores (city);
+CREATE INDEX idx_product_category_name ON product_categories (name);
+CREATE INDEX idx_product_name ON products (name);
+CREATE INDEX idx_product_price ON products (price);

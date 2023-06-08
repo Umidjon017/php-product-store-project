@@ -60,4 +60,20 @@ class Request implements RequestInterface
     {
         return $this->params ?? [];
     }
+
+    public function all(): array
+    {
+        $requestedData = [];
+
+        if ($this->getMethod() === 'post') {
+            $requestedData = $_POST;
+        }
+        elseif ($this->getMethod() === 'get') {
+            $requestedData = $_GET;
+        } else {
+            return [];
+        }
+
+        return $requestedData;
+    }
 }
